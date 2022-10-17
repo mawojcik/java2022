@@ -7,7 +7,7 @@ public class Main {
         PESEL pesel_input = new PESEL(args[0]);
         PESEL pesel_to_compare = new PESEL("78040241369");
 
-        PESEL.check();
+        PESEL.check(args[0]);
         PESEL.compare(pesel_to_compare, pesel_input);
 
         System.out.println("\nPesel input:      " + pesel_input.pesel);
