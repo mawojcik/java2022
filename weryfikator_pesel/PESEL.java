@@ -1,10 +1,11 @@
 public class PESEL {
-    String pesel;
+    static String pesel;
+
     PESEL(String pesel) {
         this.pesel = pesel;
     }
 
-    public static boolean check (String pesel) {
+    public static boolean check () {
         int sum = 0;
         int[] weight = {1, 3, 7, 9};
 
@@ -30,5 +31,4 @@ public class PESEL {
         System.out.println("Pesel numbers are different!");
         return false;
     }
-
 }
