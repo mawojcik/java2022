@@ -1,14 +1,10 @@
 public class PESEL {
-    String pesel = "";
+    String pesel;
     PESEL(String pesel) {
         this.pesel = pesel;
     }
-    public static boolean check (String pesel) {
-        if (pesel.length() != 11) {
-            System.out.println("Pesel jest nie poprawny!");
-            return false;
-        }
 
+    public static boolean check (String pesel) {
         int sum = 0;
         int[] weight = {1, 3, 7, 9};
 
@@ -17,22 +13,21 @@ public class PESEL {
         }
 
         if ((10 - (sum % 10)) == Character.getNumericValue(pesel.charAt(10))) {
-            System.out.println("Pesel jest poprawny!");
+            System.out.println("Pesel is correct!\n");
             return true;
         }
 
-        System.out.println("Pesel jest nie poprawny!");
+        System.out.println("Pesel is not correct!\n");
         return false;
     }
 
     static boolean compare(PESEL pesel_to_compare, PESEL pesel_input) {
 
-
         if (pesel_input.pesel.equals(pesel_to_compare.pesel)) {
-            System.out.println("Pesele sa takie same");
+            System.out.println("Pesel numbers are the same");
             return true;
         }
-        System.out.println("Pesele sa inne!");
+        System.out.println("Pesel numbers are different!");
         return false;
     }
 
