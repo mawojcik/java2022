@@ -1,5 +1,10 @@
 public class PESEL {
-    String pesel;
+    private String pesel;
+
+    public String getPesel() {
+        return pesel;
+    }
+
     PESEL(String pesel) {
         this.pesel = pesel;
     }
