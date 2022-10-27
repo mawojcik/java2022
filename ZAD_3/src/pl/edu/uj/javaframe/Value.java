@@ -17,6 +17,7 @@ abstract class Value{
     public abstract boolean neq (Value v);
     public abstract boolean equals (Value v);
     public abstract int hashCode();
+    
 
     @Override
     public String toString() {
