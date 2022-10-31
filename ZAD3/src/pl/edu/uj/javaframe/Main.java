@@ -17,14 +17,25 @@ public class Main {
 
         MyImaginaryDouble im1 = (MyImaginaryDouble) new MyImaginaryDouble().create("12i3");
         MyImaginaryDouble im2 = (MyImaginaryDouble) new MyImaginaryDouble().create("5i3");
-        MyImaginaryDouble im3 = (MyImaginaryDouble) new MyImaginaryDouble().create("5i3");
+        MyImaginaryDouble im3 = (MyImaginaryDouble) new MyImaginaryDouble().create("5");
         MyDouble re = (MyDouble) new MyDouble().create("5");
 
+        MyImaginaryInt imi1 = (MyImaginaryInt) new MyImaginaryInt().create("5");
         Int i1 = (Int) new Int().create("5");
-        Int i2 = (Int) new Int().create("3");
+        Int i2 = (Int) new Int().create("5");
 
-        i1.gte(i2);
-        System.out.println();
+
+
+        System.out.println(i2.equals(i1));
+
+
+
+
+        MyDouble d1 = (MyDouble) new MyDouble().create("6");
+        MyDouble d2 = (MyDouble) new MyDouble().create("6.0");
+//        d1.pow(d2).print();
+//        System.out.println(d1.hashCode());
+//        System.out.println(i2.hashCode());
 
 //        im1.print();
 //        im1.add(im2).print();
@@ -33,7 +44,7 @@ public class Main {
 //        im2.print();
 //        System.out.println();
 //        System.out.println("------------------------------");
-        df.print();
+//        df.print();
 //      INSTRUKCJE DO ĆWICZEŃ I
 
 //      Dopisz metodę print w klasie DataFrame wypisującą zawartość dataframe
