@@ -6,21 +6,13 @@ public class Main {
             System.out.println("Run with correct arguments!");
             System.exit(0);
         }
-        ROT11 x = new ROT11();
-        Polibiusz y = new Polibiusz();
+//        ROT11 rot = new ROT11();
+//        Polibiusz pol = new Polibiusz();
 
         if(Objects.equals(args[2], "crypt")) {
-            if (Objects.equals(args[3], "rot")) {
-                Cryptographer.cryptFile("a", "aa", x);
-            } else if (Objects.equals(args[3], "polibiusz")) {
-                Cryptographer.cryptFile("a", "aa", y);
-            }
+                Cryptographer.cryptFile("a", "aa", args[3]);
         } else if (Objects.equals(args[2], "decrypt")) {
-            if (Objects.equals(args[3], "rot")) {
-                Cryptographer.decryptFile("a", "aa", x);
-            } else if (Objects.equals(args[3], "polibiusz")) {
-                Cryptographer.decryptFile("a", "aa", y);
-            }
+                Cryptographer.decryptFile("a", "aa", args[3]);
         }
 
     }

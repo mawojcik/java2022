@@ -1,32 +1,31 @@
 public class ROT11 implements Algorithm {
 
     static final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    static final int rotation = 11;
+    static final int rotation = 3;
 
 
     public static String crypt(String inputWord) {
-        String crypted = "";
+        String encrypted = "";
         for (int i = 0; i < inputWord.length(); i++) {
             for (int j = 0; j < alphabet.length(); j++) {
                 if(inputWord.charAt(i) == alphabet.charAt(j)) {
-//                    crypted += alphabet.charAt(j+rotation);
-                    crypted += alphabet.charAt(j + rotation);
+                    encrypted += alphabet.charAt((j + rotation) % alphabet.length());
                 }
             }
         }
-        System.out.println("Crypting");
-        return crypted;
+        return encrypted;
     }
 
     public static String decrypt(String inputWord) {
-        String encrypted = "";
-//        for (int i = 0; i < inputWord.length(); i++) {
-//            for (int j = 0; j < alphabet.length(); j++) {
-//                if(inputWord.charAt(i) == alphabet.charAt(j)) {
-//                    encrypted.append = alphabet.charAt(j+rotation);
-//                }
-//            }
-//        }
-        return encrypted;
+        String decrypted = "";
+        for (int i = 0; i < inputWord.length(); i++) {
+            for (int j = 0; j < alphabet.length(); j++) {
+                if(inputWord.charAt(i) == alphabet.charAt(j)) {
+                    //TODO: check if algorithm works
+                    decrypted += alphabet.charAt((j - rotation) % alphabet.length());
+                }
+            }
+        }
+        return decrypted;
     }
 }

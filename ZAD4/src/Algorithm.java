@@ -3,7 +3,6 @@ public interface Algorithm {
         return "";
     }
 
-
     static String decrypt(String inputWord) {
         return "";
     }
