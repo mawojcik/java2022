@@ -1,7 +1,7 @@
 public class Polibiusz implements Algorithm {
 
 
-    static final String[][] szachownica = {{"A", "B", "C", "D", "E"},
+    static final String[][] szachownica = {{"A", "B", "C", "D", "E", "J"},
                                            {"F", "G", "H", "I", "K"},
                                            {"L", "M", "N", "O", "P"},
                                            {"Q", "R", "S", "T", "U"},
@@ -9,7 +9,7 @@ public class Polibiusz implements Algorithm {
     };
     public static String crypt(String inputWord) {
         String encrypted = "";
-        encrypted = szachownica[1][1];
+        encrypted = szachownica[4][3];
 
 
         return encrypted;
