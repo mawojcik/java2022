@@ -1,7 +1,7 @@
 public class ROT11 implements Algorithm {
 
     static final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    static final int rotation = 3;
+    static final int rotation = 11;
 
 
     public static String crypt(String inputWord) {
@@ -21,8 +21,12 @@ public class ROT11 implements Algorithm {
         for (int i = 0; i < inputWord.length(); i++) {
             for (int j = 0; j < alphabet.length(); j++) {
                 if(inputWord.charAt(i) == alphabet.charAt(j)) {
-                    //TODO: check if algorithm works
-                    decrypted += alphabet.charAt((j - rotation) % alphabet.length());
+                    //TODO: make this nicer, like in crypt
+                    if ((j - rotation) < 0) {
+                        decrypted += alphabet.charAt(alphabet.length() + j - rotation);
+                    } else {
+                        decrypted += alphabet.charAt((j - rotation) % alphabet.length());
+                    }
                 }
             }
         }

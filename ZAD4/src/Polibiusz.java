@@ -1,11 +1,22 @@
 public class Polibiusz implements Algorithm {
 
+
+    static final String[][] szachownica = {{"A", "B", "C", "D", "E"},
+                                           {"F", "G", "H", "I", "K"},
+                                           {"L", "M", "N", "O", "P"},
+                                           {"Q", "R", "S", "T", "U"},
+                                           {"V", "W", "X", "Y", "Z"}
+    };
     public static String crypt(String inputWord) {
-//        System.out.println(inputWord);
-        return inputWord+1;
+        String encrypted = "";
+        encrypted = szachownica[1][1];
+
+
+        return encrypted;
     }
 
     public String decrypt(String inputWord) {
-        return "";
+        String decrypted = "";
+        return decrypted;
     }
 }

@@ -10,9 +10,9 @@ public class Main {
 //        Polibiusz pol = new Polibiusz();
 
         if(Objects.equals(args[2], "crypt")) {
-                Cryptographer.cryptFile("a", "aa", args[3]);
+                Cryptographer.cryptFile(args[0], "aa", args[3]);
         } else if (Objects.equals(args[2], "decrypt")) {
-                Cryptographer.decryptFile("a", "aa", args[3]);
+                Cryptographer.decryptFile(args[0], "aa", args[3]);
         }
 
     }
