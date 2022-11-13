@@ -7,6 +7,14 @@ public class ROT11 implements Algorithm {
     public static String crypt(String inputWord) {
         String encrypted = "";
         for (int i = 0; i < inputWord.length(); i++) {
+            if (inputWord.charAt(i) == ' ') {
+                encrypted += " ";
+                continue;
+            }
+            if (inputWord.charAt(i) == '\n') {
+                encrypted += '\n';
+                continue;
+            }
             for (int j = 0; j < alphabet.length(); j++) {
                 if(inputWord.charAt(i) == alphabet.charAt(j)) {
                     encrypted += alphabet.charAt((j + rotation) % alphabet.length());
@@ -19,6 +27,14 @@ public class ROT11 implements Algorithm {
     public static String decrypt(String inputWord) {
         String decrypted = "";
         for (int i = 0; i < inputWord.length(); i++) {
+            if (inputWord.charAt(i) == ' ') {
+                decrypted += " ";
+                continue;
+            }
+            if (inputWord.charAt(i) == '\n') {
+                decrypted += '\n';
+                continue;
+            }
             for (int j = 0; j < alphabet.length(); j++) {
                 if(inputWord.charAt(i) == alphabet.charAt(j)) {
                     //TODO: make this nicer, like in crypt
