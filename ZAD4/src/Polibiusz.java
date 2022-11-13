@@ -1,10 +1,12 @@
+import java.sql.SQLOutput;
+
 public class Polibiusz implements Algorithm {
 
-    static final String[][] szachownica = {{"A", "B", "C", "D", "E", "J"},
-                                           {"F", "G", "H", "I", "K"},
-                                           {"L", "M", "N", "O", "P"},
-                                           {"Q", "R", "S", "T", "U"},
-                                           {"V", "W", "X", "Y", "Z"}
+    static final String[][] board = {{"A", "B", "C", "D", "E", "J"},
+                                     {"F", "G", "H", "I", "K"},
+                                     {"L", "M", "N", "O", "P"},
+                                     {"Q", "R", "S", "T", "U"},
+                                     {"V", "W", "X", "Y", "Z"}
     };
     public static String crypt(String inputWord) {
         inputWord = inputWord.toLowerCase();
@@ -22,11 +24,11 @@ public class Polibiusz implements Algorithm {
             }
             row = (int)Math.ceil((inputWord.charAt(i) - 'a') / 5) + 1;
             col = ((inputWord.charAt(i) - 'a') % 5) + 1;
-            if (inputWord.charAt(i) == 'k') {
-                row = 2;
-                col = 5;
+            if (inputWord.charAt(i) == 'j') {
+                row = 1;
+                col = 6;
             }
-            if (inputWord.charAt(i) > 'k') {
+            if (inputWord.charAt(i) >= 'k') {
                 if (col == 1) {
                     col = 5;
                     row = row - 1;
@@ -40,15 +42,27 @@ public class Polibiusz implements Algorithm {
     }
 
     public static String decrypt(String inputWord) {
-        String decrypted = inputWord;
-
-//        for(int i = 0; i < inputWord.length(); i+=2) {
-//
-//
-//
-//
-//
-//        }
+        String decrypted = "";
+        for(int i = 0; i < inputWord.length(); i++) {
+//            Character.getNumericValue(inputWord.charAt(i))
+            if (inputWord.charAt(i) == ' ') {
+                decrypted += " ";
+                continue;
+            }
+            if (inputWord.charAt(i) == '\n') {
+                decrypted += '\n';
+                continue;
+            }
+            if (inputWord.charAt(i) == '.') {
+                decrypted += '.';
+                continue;
+            }
+            int x = Character.getNumericValue(inputWord.charAt(i));
+            if (x >= 0 && x <= 9) {
+                decrypted += board[Character.getNumericValue(inputWord.charAt(i)) - 1][Character.getNumericValue(inputWord.charAt(i + 1)) - 1];
+                i++;
+            }
+        }
 
 
 

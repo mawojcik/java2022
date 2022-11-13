@@ -3,8 +3,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Objects;
 public class Cryptographer {
-    //TODO: make class with reading from file
-
     public static void writeToFile(String pathToFileOut, String data) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(pathToFileOut));
@@ -14,7 +12,6 @@ public class Cryptographer {
             throw new RuntimeException(e);
         }
     }
-
 
     public static String readFromFile(String pathToFileIn) {
         String data = "";
@@ -27,30 +24,23 @@ public class Cryptographer {
         return data;
     }
 
-
-
-
     public static void cryptFile(String pathToFileIn, String pathToFileOut, String algorithm) {
-
         if (Objects.equals(algorithm, "rot")) {
-            System.out.println(ROT11.crypt(readFromFile(pathToFileIn)));
+//            System.out.println(ROT11.crypt(readFromFile(pathToFileIn)));
             writeToFile(pathToFileOut, ROT11.crypt(readFromFile(pathToFileIn)));
         } else if (Objects.equals(algorithm, "polibiusz")) {
-            System.out.println(Polibiusz.crypt(readFromFile(pathToFileIn)));
-            writeToFile(pathToFileOut, Polibiusz.crypt(readFromFile(pathToFileIn)));        }
+//            System.out.println(Polibiusz.crypt(readFromFile(pathToFileIn)));
+            writeToFile(pathToFileOut, Polibiusz.crypt(readFromFile(pathToFileIn)));
+        }
     }
 
     public static void decryptFile(String pathToFileIn, String pathToFileOut, String algorithm) {
-
-
         if (Objects.equals(algorithm, "rot")) {
-//            System.out.println(ROT11.decrypt(data));
-            System.out.println(ROT11.decrypt(readFromFile(pathToFileIn)));
+//            System.out.println(ROT11.decrypt(readFromFile(pathToFileIn)));
             writeToFile(pathToFileOut, ROT11.decrypt(readFromFile(pathToFileIn)));
         } else if (Objects.equals(algorithm, "polibiusz")) {
-            System.out.println(Polibiusz.decrypt(readFromFile(pathToFileIn)));
+//            System.out.println(Polibiusz.decrypt(readFromFile(pathToFileIn)));
             writeToFile(pathToFileOut, Polibiusz.decrypt(readFromFile(pathToFileIn)));
         }
     }
 }
-// write to file

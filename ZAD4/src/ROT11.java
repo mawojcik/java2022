@@ -1,5 +1,4 @@
 public class ROT11 implements Algorithm {
-
     static final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     static final int rotation = 11;
 
@@ -15,6 +14,11 @@ public class ROT11 implements Algorithm {
                 encrypted += '\n';
                 continue;
             }
+            if (inputWord.charAt(i) == '.') {
+                encrypted += '.';
+                continue;
+            }
+
             for (int j = 0; j < alphabet.length(); j++) {
                 if(inputWord.charAt(i) == alphabet.charAt(j)) {
                     encrypted += alphabet.charAt((j + rotation) % alphabet.length());
@@ -33,6 +37,10 @@ public class ROT11 implements Algorithm {
             }
             if (inputWord.charAt(i) == '\n') {
                 decrypted += '\n';
+                continue;
+            }
+            if (inputWord.charAt(i) == '.') {
+                decrypted += '.';
                 continue;
             }
             for (int j = 0; j < alphabet.length(); j++) {
