@@ -1,17 +1,14 @@
-import java.sql.SQLOutput;
-
 public class Polibiusz implements Algorithm {
-
-    static final String[][] board = {{"A", "B", "C", "D", "E", "J"},
-                                     {"F", "G", "H", "I", "K"},
-                                     {"L", "M", "N", "O", "P"},
-                                     {"Q", "R", "S", "T", "U"},
-                                     {"V", "W", "X", "Y", "Z"}
+    static final String[][] board = {{"a", "b", "c", "d", "e", "j"},
+                                     {"f", "g", "h", "i", "k"},
+                                     {"l", "m", "n", "o", "p"},
+                                     {"q", "r", "s", "t", "u"},
+                                     {"v", "w", "x", "y", "z"}
     };
+
     public static String crypt(String inputWord) {
         inputWord = inputWord.toLowerCase();
-        int row = 0;
-        int col = 0;
+        int row, col;
         String encrypted = "";
         for(int i = 0; i < inputWord.length(); i++) {
             if (inputWord.charAt(i) == ' ') {
@@ -53,21 +50,13 @@ public class Polibiusz implements Algorithm {
                 decrypted += '\n';
                 continue;
             }
-            if (inputWord.charAt(i) == '.') {
-                decrypted += '.';
-                continue;
-            }
+
             int x = Character.getNumericValue(inputWord.charAt(i));
             if (x >= 0 && x <= 9) {
                 decrypted += board[Character.getNumericValue(inputWord.charAt(i)) - 1][Character.getNumericValue(inputWord.charAt(i + 1)) - 1];
                 i++;
             }
         }
-
-
-
         return decrypted;
     }
 }
-
-// read from file

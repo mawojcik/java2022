@@ -2,6 +2,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Objects;
+
 public class Cryptographer {
     public static void writeToFile(String pathToFileOut, String data) {
         try {
@@ -14,7 +15,7 @@ public class Cryptographer {
     }
 
     public static String readFromFile(String pathToFileIn) {
-        String data = "";
+        String data;
         try {
             data = new String(Files.readAllBytes(Paths.get(pathToFileIn)));
         }  catch (IOException e) {
@@ -26,20 +27,16 @@ public class Cryptographer {
 
     public static void cryptFile(String pathToFileIn, String pathToFileOut, String algorithm) {
         if (Objects.equals(algorithm, "rot")) {
-//            System.out.println(ROT11.crypt(readFromFile(pathToFileIn)));
             writeToFile(pathToFileOut, ROT11.crypt(readFromFile(pathToFileIn)));
         } else if (Objects.equals(algorithm, "polibiusz")) {
-//            System.out.println(Polibiusz.crypt(readFromFile(pathToFileIn)));
             writeToFile(pathToFileOut, Polibiusz.crypt(readFromFile(pathToFileIn)));
         }
     }
 
     public static void decryptFile(String pathToFileIn, String pathToFileOut, String algorithm) {
         if (Objects.equals(algorithm, "rot")) {
-//            System.out.println(ROT11.decrypt(readFromFile(pathToFileIn)));
             writeToFile(pathToFileOut, ROT11.decrypt(readFromFile(pathToFileIn)));
         } else if (Objects.equals(algorithm, "polibiusz")) {
-//            System.out.println(Polibiusz.decrypt(readFromFile(pathToFileIn)));
             writeToFile(pathToFileOut, Polibiusz.decrypt(readFromFile(pathToFileIn)));
         }
     }

@@ -1,0 +1,8 @@
+java Main pathToFileIn PathToFileOut whatToDo algorithm
+
+whatToDo: crypt, decrypt
+algorithm: rot, polibiusz
+
+for example:
+
+java Main tocrypt.txt encrypted.txt crypt rot

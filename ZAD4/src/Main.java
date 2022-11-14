@@ -12,6 +12,5 @@ public class Main {
         } else if (Objects.equals(args[2], "decrypt")) {
                 Cryptographer.decryptFile(args[0], args[1], args[3]);
         }
-
     }
 }
