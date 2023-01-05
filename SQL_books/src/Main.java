@@ -1,11 +1,11 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException {
         DB.connect();
-
         while(true) {
             System.out.println("""
                     
@@ -23,19 +23,28 @@ public class Main {
                 case 2:
                     boolean flag = true;
                     while(flag) {
+                        System.out.println("\nWpisz po czym wyszukać: isbn, imie, nazwisko, tytul\nAby przestac przeszukiwanie database napisz:\nstop");
                         input = reader.readLine();
                         switch (input) {
                             case "isbn":
-                                DB.list("SELECT isbn FROM books");
+                                System.out.println("Podaj isbn do wyszukania");
+                                input = reader.readLine();
+                                DB.list("select * FROM books where isbn='"+input+"'");
                                 break;
                             case "imie":
-                                DB.list("SELECT name FROM books");
+                                System.out.println("Podaj imie do wyszukania");
+                                input = reader.readLine();
+                                DB.list("select * FROM books where name='"+input+"'");
                                 break;
                             case "nazwisko":
-                                DB.list("SELECT surname FROM books");
+                                System.out.println("Podaj nazwisko do wyszukania");
+                                input = reader.readLine();
+                                DB.list("select * FROM books where surname='"+input+"'");
                                 break;
                             case "tytul":
-                                DB.list("SELECT title FROM books");
+                                System.out.println("Podaj tytul do wyszukania");
+                                input = reader.readLine();
+                                DB.list("select * FROM books where title='"+input+"'");
                                 break;
                             case "stop":
                                 flag = false;
@@ -44,30 +53,23 @@ public class Main {
                     }
                     break;
                 case 3:
-                    flag = true;
-                    while(flag) {
                         System.out.println("Podaj numer isbn (13 cyfr): ");
-                        int isbn = Integer.parseInt(reader.readLine());
+                        String isbn = reader.readLine();
                         System.out.println("Podaj tytuł: ");
-                        String tytul = reader.readLine();
+                        String title = reader.readLine();
                         System.out.println("Podaj imie: ");
-                        String imie = reader.readLine();
+                        String name = reader.readLine();
                         System.out.println("Podaj nazwisko: ");
-                        String nazwisko = reader.readLine();
+                        String surname = reader.readLine();
                         System.out.println("Podaj rok: ");
-                        int rok = Integer.parseInt(reader.readLine());
-//                        book_entry =
-                    }
+                        String year = reader.readLine();
+                        DB.addEntry(isbn, title, name, surname, year);
+                    System.out.println("dodano");
                     break;
                 case 4:
                     System.exit(1);
                     break;
             }
-
-
         }
-
-
-
     }
 }
